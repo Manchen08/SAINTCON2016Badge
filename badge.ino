@@ -1,14 +1,7 @@
 #include <NewPing.h>
 #include "LedControl.h"
 
-/*
- Now we need a LedControl to work with.
- ***** These pin numbers will probably not work with your hardware *****
- pin 12 is connected to the DataIn 
- pin 11 is connected to the CLK 
- pin 10 is connected to LOAD 
- We have only a single MAX72XX.
- */
+//Our pins are different than from the example
 LedControl lc = LedControl(13,14,15,1); 
 const int FLEX_PIN = A0;
 
@@ -29,6 +22,7 @@ void setup() {
   lc.clearDisplay(0);
 }
 
+//Read the flex sensor and determine if it's too much!
 void checkPainLvl(){
   bend = analogRead(FLEX_PIN);
   if (bend < 350){
@@ -42,6 +36,7 @@ void checkPainLvl(){
   }
 }
 
+//Circle around each segment, spell J,o,n in 2 3 4.
 void circles(){
   
   for(int i=0; i < 8; i++){
@@ -162,6 +157,7 @@ void circles(){
   }
 }
 
+//Circle the outside of the entire segment
 void inCircle(){
   unsigned long timer = 100;
 
@@ -222,6 +218,7 @@ void inCircle(){
   delay(timer);
 }
 
+//Slowly brighten to display Jon, flash and fill all rows from the outside in.
 void dispName(){
   unsigned int timer = 600;
   
@@ -269,6 +266,7 @@ void clearDisp(){
   
 }
 
+//Fill from the left to the right, half the full with a delayed look
 void psych(){
   int timer = 50;
   for(int i=0; i < 8; i++){
@@ -286,6 +284,7 @@ void psych(){
   delay(300);
 }
 
+//Spell goodgye
 void goodbye(){
   lc.setRow(0,0,B01111011);  
   lc.setRow(0,1,B00011101);
@@ -297,6 +296,8 @@ void goodbye(){
   
   delay(4000);
 }
+
+//Start spinning circles in each segment then slow down
 void slowDown(){
   int timer = 1;
   do{

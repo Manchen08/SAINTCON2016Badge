@@ -4,4 +4,4 @@ Wemos driver https://www.wemos.cc/downloads
 
 Follow this guide to get your 8266 chip to work with arduino https://github.com/esp8266/Arduino
 
-IO on the Wemos are different when using librarys for the 8266 follow the pin mapping at the product site here https://www.wemos.cc/product/d1-mini.html
+IO on the Wemos are different when using libraries for the 8266. Follow the pin mapping at the product site here https://www.wemos.cc/product/d1-mini.html
